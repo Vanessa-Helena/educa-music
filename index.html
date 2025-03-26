@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Educacional Acessível</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Site Educacional Acessível</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#matematica">Matemática</a></li>
+                <li><a href="#portugues">Português</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Bem-vindo ao nosso site educacional!</h2>
+            <p>Escolha uma matéria para começar:</p>
+            <button onclick="navegarPara('matematica')">MATEMÁTICA</button>
+            <button onclick="navegarPara('portugues')">PORTUGUÊS</button>
+        </section>
+
+        <section id="matematica" style="display: none;">
+            <h2>Matemática</h2>
+            <button onclick="carregarMusicas('matematica')">CARREGAR MÚSICAS</button>
+            <div id="lista-musicas-matematica"></div>
+        </section>
+
+        <section id="portugues" style="display: none;">
+            <h2>Português</h2>
+            <button onclick="carregarMusicas('portugues')">CARREGAR MÚSICAS</button>
+            <div id="lista-musicas-portugues"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Site Educacional Acessível</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
