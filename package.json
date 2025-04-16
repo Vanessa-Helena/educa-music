@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "build": "npm install --omit=dev && npm rebuild --update-binary",
-    "start": "node src/server.js",
+    "build": "npm install && npm run prepare",
+    "prepare": "vercel-build"
     "vercel-build": "npm install && npm run build"
   },
   "dependencies": {
