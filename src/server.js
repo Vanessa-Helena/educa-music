@@ -11,6 +11,13 @@ import { createProxyMiddleware } from 'http-proxy-middleware'; // Mantenha essa 
 import expressRateLimit from 'express-rate-limit'; // Adicione isso
 import { require } from '../esm-loader.js';
 
+// Force ES Module implementation
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+// Import axios desta forma
+import axios from 'axios';
+
 // Configurações iniciais
 const app = express();
 const cache = new NodeCache({ stdTTL: 3600 }); // Cache de 1 hora
