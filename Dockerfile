@@ -1,4 +1,16 @@
-FROM node:18.20-alpine
+FROM node:18-slim
+
+# Instala dependências do sistema necessárias
+RUN apt-get update && \
+    apt-get install -y \
+    python3 \
+    build-essential \
+    g++ \
+    make \
+    cmake \
+    libgflags-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 

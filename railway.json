@@ -9,7 +9,7 @@
             "commands": ["npm install"]
           },
           "start": {
-            "cmd": "node server.js"
+            "cmd": "node src/server.js"
           }
         }
       }
