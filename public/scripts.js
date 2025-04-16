@@ -104,6 +104,12 @@ function carregarMusicas(materia) {
   }, 800);
 }
 
+function addButtonPressEffect(button) {
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        button.style.transform = '';
+    }, 100);
+} 
 // Função para gerar descrição
 async function gerarDescricaoIA(tituloMusica) {
     const descricaoContainer = document.getElementById('descricao-musica');

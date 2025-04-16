@@ -1,5 +1,6 @@
 {
   "name": "educamusic",
+  "type": "module",
   "version": "1.0.0",
   "description": "Plataforma de músicas educativas acessíveis",
   "main": "server.js",

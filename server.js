@@ -1,10 +1,11 @@
 require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 const axios = require('axios');
 const https = require('https');
 const NodeCache = require('node-cache');
-const { pipeline } = require('@xenova/transformers');
+import { pipeline } from '@xenova/transformers';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 // Configurações iniciais
 const app = express();
@@ -90,7 +91,7 @@ axiosInstance.interceptors.response.use(
 let localModel;
 async function loadLocalModel() {
   try {
-    localModel = await pipeline('text-generation', 'Xenova/LaMini-Flan-T5-248M');
+    localModel = await pipeline('text-generation', 'Xenova/distilgpt2'); // Modelo compatível
     console.log('Modelo local carregado com sucesso');
   } catch (error) {
     console.error('Erro ao carregar modelo local:', error);

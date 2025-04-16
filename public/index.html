@@ -18,8 +18,9 @@
   
   <!-- CSS -->
   <link rel="stylesheet" href="/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      
   <!-- Meta tags para redes sociais -->
   <meta property="og:title" content="Matemágica - Aprendizado Musical Acessível">
   <meta property="og:description" content="Músicas educativas acessíveis para pessoas com deficiência visual e baixa visão">
@@ -58,11 +59,21 @@
           <h1>Aprender nunca foi tão musical!</h1>
           <p class="subtitle">Músicas educativas com recursos de acessibilidade para todos</p>
           <div class="header-buttons">
-            <button class="btn-primary" onclick="navegarPara('matematica')" aria-label="Começar com Matemática">
-              <span class="button-icon" aria-hidden="true">➗</span> Começar com Matemática
+            <button 
+              class="btn btn-primary btn-gradient btn-rounded"
+              onclick="navegarPara('matematica')"
+              aria-label="Começar com Matemática - Navegar para seção de matemática"
+            >
+              <span class="button-icon" aria-hidden="true">➗</span> 
+              Começar Agora
             </button>
-            <button class="btn-secondary" onclick="iniciarNavegacaoPorVoz()" aria-label="Ativar Comandos de Voz">
-              <span class="button-icon" aria-hidden="true">🎤</span> Ativar Comandos de Voz
+            <button 
+              class="btn btn-secondary btn-rounded"
+              onclick="iniciarNavegacaoPorVoz()"
+              aria-label="Ativar comandos de voz - Navegação por reconhecimento de voz"
+            >
+              <span class="button-icon" aria-hidden="true">🎤</span> 
+              Comandos de Voz
             </button>
           </div>
         </div>
@@ -81,7 +92,13 @@
         <p>Nosso objetivo é tornar o aprendizado musical acessível para pessoas com deficiência visual e baixa visão.</p>
         
         <div class="subject-cards">
-          <article class="card" onclick="navegarPara('matematica')" role="button" tabindex="0" aria-label="Explorar músicas de Matemática">
+          <article 
+            class="card" 
+            onclick="navegarPara('matematica')" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Explorar músicas de Matemática"
+          >
             <div class="card-icon" aria-hidden="true">➗</div>
             <h3>Matemática</h3>
             <p>Músicas sobre números, operações e muito mais!</p>
@@ -91,13 +108,28 @@
         <section class="acessibilidade-container" aria-labelledby="acessibilidade-heading">
           <h3 id="acessibilidade-heading">Ferramentas de Acessibilidade</h3>
           <div class="acessibilidade-buttons">
-            <button onclick="toggleAltoContraste()" class="btn-small" aria-label="Alternar modo alto contraste">
+            <button 
+              type="button"
+              class="btn btn-small btn-secondary"
+              onclick="toggleAltoContraste()"
+              aria-label="Alternar modo alto contraste - Ativar visualização de alto contraste"
+            >
               <span aria-hidden="true">👓</span> Alto Contraste
             </button>
-            <button onclick="toggleFonteGrande()" class="btn-small" aria-label="Alternar tamanho da fonte">
+            <button 
+              type="button"
+              class="btn btn-small btn-secondary"
+              onclick="toggleFonteGrande()"
+              aria-label="Alternar tamanho da fonte - Aumentar tamanho do texto"
+            >
               <span aria-hidden="true">🔍</span> Aumentar Fonte
             </button>
-            <button onclick="iniciarNavegacaoPorVoz()" class="btn-small" aria-label="Ativar navegação por voz">
+            <button 
+              type="button"
+              class="btn btn-small btn-primary"
+              onclick="iniciarNavegacaoPorVoz()"
+              aria-label="Ativar navegação por voz - Controlar o site por comandos de voz"
+            >
               <span aria-hidden="true">🎤</span> Navegação por Voz
             </button>
           </div>
@@ -114,11 +146,23 @@
         
         <div class="action-panel">
           <div class="action-buttons">
-            <button class="btn-primary" onclick="carregarMusicas('matematica')" aria-label="Mostrar músicas disponíveis">
-              <span class="button-icon" aria-hidden="true">🎶</span> Músicas Disponíveis
+            <button 
+              type="button"
+              class="btn btn-primary btn-gradient"
+              onclick="carregarMusicas('matematica')"
+              aria-label="Mostrar músicas disponíveis - Listar todas as músicas de matemática"
+            >
+              <span class="button-icon" aria-hidden="true">🎶</span> 
+              Ver Todas
             </button>
-            <button class="btn-secondary" onclick="document.getElementById('criar-musica').style.display='block'" aria-label="Criar nova música">
-              <span class="button-icon" aria-hidden="true">✨</span> Criar Nova Música
+            <button 
+              type="button"
+              class="btn btn-secondary btn-rounded"
+              onclick="document.getElementById('criar-musica').style.display='block'"
+              aria-label="Criar nova música - Abrir formulário para criação de nova música"
+            >
+              <span class="button-icon" aria-hidden="true">✨</span> 
+              Criar Música
             </button>
           </div>
           
@@ -140,10 +184,16 @@
                 type="text" 
                 id="estilo-musica" 
                 placeholder="Ex: rap infantil" 
-                aria-label="Digite o estilo musical"
+                aria-label="Digite o estilo musical desejado"
               >
-              <button class="btn-primary" onclick="gerarLetraMusical()" aria-label="Gerar letra musical">
-                <span class="button-icon" aria-hidden="true">🎵</span> Criar Letra
+              <button 
+                type="button"
+                class="btn btn-primary btn-gradient btn-rounded"
+                onclick="gerarLetraMusical()"
+                aria-label="Gerar letra musical - Criar letra com inteligência artificial"
+              >
+                <span class="button-icon" aria-hidden="true">🎵</span> 
+                Gerar Letra
               </button>
             </div>
             <div id="letra-musica" class="lyrics-container" aria-live="polite"></div>
@@ -189,10 +239,20 @@
         </section>
         <section class="footer-section" aria-labelledby="footer-accessibility">
           <h3 id="footer-accessibility">Acessibilidade</h3>
-          <button onclick="toggleAltoContraste()" class="btn-small" aria-label="Alternar modo alto contraste">
+          <button 
+            type="button"
+            class="btn btn-small btn-secondary"
+            onclick="toggleAltoContraste()"
+            aria-label="Alternar modo alto contraste"
+          >
             <span aria-hidden="true">👓</span> Alto Contraste
           </button>
-          <button onclick="toggleFonteGrande()" class="btn-small" aria-label="Alternar tamanho da fonte">
+          <button 
+            type="button"
+            class="btn btn-small btn-secondary"
+            onclick="toggleFonteGrande()"
+            aria-label="Alternar tamanho da fonte"
+          >
             <span aria-hidden="true">🔍</span> Aumentar Fonte
           </button>
         </section>
@@ -208,6 +268,16 @@
   <script>
     // Atualiza o ano no footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Adiciona efeito de clique nos botões
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 100);
+      });
+    });
   </script>
 </body>
 </html>

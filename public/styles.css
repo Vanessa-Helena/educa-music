@@ -66,9 +66,15 @@ body {
 
 /* ===== TIPOGRAFIA ===== */
 h1, h2, h3, h4 {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Peso semi-bold */
     line-height: 1.2;
     margin-bottom: var(--space-md);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800; /* Peso extra-bold para destaque */
 }
 
 h1 { font-size: 2.5rem; }
@@ -142,52 +148,119 @@ a {
 
 /* ===== COMPONENTES ===== */
 /* Botões */
+/* ===== BOTÕES MODERNOS ===== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition-normal);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: none;
-    gap: var(--space-xs);
+    gap: 0.5rem;
     font-family: 'Poppins', sans-serif;
-    font-size: var(--font-base);
-    margin: var(--space-xs);
+    font-size: 1rem;
+    margin: 0.25rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-width: 120px;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::after {
+    transform: translateX(0);
 }
 
 .btn-primary {
     background-color: var(--primary);
     color: white;
+    box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 7px 14px rgba(67, 97, 238, 0.25);
 }
 
 .btn-secondary {
     background-color: white;
     color: var(--primary);
     border: 2px solid var(--primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .btn-secondary:hover {
     background-color: var(--primary-light);
     color: white;
+    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.2);
 }
 
 .btn-small {
-    padding: var(--space-xs) var(--space-sm);
+    padding: 0.5rem 1rem;
     font-size: 0.9rem;
+    min-width: auto;
 }
 
+/* Efeito de clique */
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Botões com ícones */
 .button-icon {
-    margin-right: var(--space-xs);
+    margin-right: 0.5rem;
     font-size: 1.1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botões arredondados */
+.btn-rounded {
+    border-radius: 50px;
+}
+
+/* Botões desativados */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Botões de loading */
+.btn-loading .button-icon {
+    animation: spin 1s linear infinite;
+}
+
+/* Botões gradiente */
+.btn-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border: none;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(247, 37, 133, 0.5);
 }
 
 /* Cards */
