@@ -1,0 +1,8 @@
+[environments]
+  [environments.production]
+    variables = { DEEPSEEK_API_KEY = "sk-0cbd9c862e73496693fa41c26db36196" }
+
+[build]
+  base = "node:18-alpine"
+  installCommand = "npm install --omit=dev"
+  startCommand = "node src/server.js"

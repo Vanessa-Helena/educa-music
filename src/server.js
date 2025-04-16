@@ -1,9 +1,11 @@
+import 'dotenv/config'; 
 require('dotenv').config();
 import express from 'express';
 import cors from 'cors';
 const axios = require('axios');
 const https = require('https');
 const NodeCache = require('node-cache');
+const apiKey = process.env.DEEPSEEK_API_KEY;
 import { pipeline } from '@xenova/transformers';
 import { createProxyMiddleware } from 'http-proxy-middleware'; // Mantenha essa linha
 import expressRateLimit from 'express-rate-limit'; // Adicione isso
@@ -13,6 +15,7 @@ import { require } from '../esm-loader.js';
 const app = express();
 const cache = new NodeCache({ stdTTL: 3600 }); // Cache de 1 hora
 const DEEPSEEK_API_URL = process.env.DEEPSEEK_API_URL || 'https://api.deepseek.com/v1';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-0cbd9c862e73496693fa41c26db36196';
 
 if (!process.env.DEEPSEEK_API_KEY) {
   console.error('❌ Erro: DEEPSEEK_API_KEY não definida');
@@ -269,7 +272,7 @@ function hashString(str) {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);
-  console.log(`Modo: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Modo: ${process.env.NODE_ENV || 'production'}`);
   console.log(`DeepSeek API: ${process.env.DEEPSEEK_API_KEY ? 'configurada' : 'não configurada'}`);
   console.log(`Cache: ${process.env.CACHE_ENABLED === 'true' ? 'ativado' : 'desativado'}`);
 });
