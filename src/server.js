@@ -12,7 +12,12 @@ import { require } from '../esm-loader.js';
 // Configurações iniciais
 const app = express();
 const cache = new NodeCache({ stdTTL: 3600 }); // Cache de 1 hora
-const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1';
+const DEEPSEEK_API_URL = process.env.DEEPSEEK_API_URL || 'https://api.deepseek.com/v1';
+
+if (!process.env.DEEPSEEK_API_KEY) {
+  console.error('❌ Erro: DEEPSEEK_API_KEY não definida');
+  process.exit(1);
+}
 
 // Configuração avançada do Axios
 const axiosInstance = axios.create({
@@ -235,10 +240,9 @@ app.post('/api/gerar-letra', async (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok',
+    status: process.env.DEEPSEEK_API_KEY ? 'ok' : 'erro',
     apiConfigured: !!process.env.DEEPSEEK_API_KEY,
-    localModelReady: !!localModel,
-    cacheEnabled: process.env.CACHE_ENABLED === 'true',
-    uptime: process.uptime()
+    environment: process.env.NODE_ENV
   });
 });
 
