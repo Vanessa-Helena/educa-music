@@ -5,7 +5,9 @@ const axios = require('axios');
 const https = require('https');
 const NodeCache = require('node-cache');
 import { pipeline } from '@xenova/transformers';
-import { createProxyMiddleware } from 'http-proxy-middleware';
+import { createProxyMiddleware } from 'http-proxy-middleware'; // Mantenha essa linha
+import expressRateLimit from 'express-rate-limit'; // Adicione isso
+import { require } from '../esm-loader.js';
 
 // Configurações iniciais
 const app = express();
