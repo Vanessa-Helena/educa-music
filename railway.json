@@ -1,0 +1,17 @@
+{
+    "build": {
+      "nixpacksPlan": {
+        "phases": {
+          "setup": {
+            "runtime": "nodejs"
+          },
+          "build": {
+            "commands": ["npm install"]
+          },
+          "start": {
+            "cmd": "node server.js"
+          }
+        }
+      }
+    }
+  }
