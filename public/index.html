@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Músicas educativas acessíveis para pessoas com deficiência visual e baixa visão">
+  <meta name="keywords" content="música educativa, acessibilidade, deficiência visual, educação inclusiva">
+  <meta name="theme-color" content="#4361ee">
+  <title>Matemágica - Aprendizado Musical Acessível</title>
+  
+  <!-- Pré-conexão para melhor performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Favicon e ícones -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  
+  <!-- Meta tags para redes sociais -->
+  <meta property="og:title" content="Matemágica - Aprendizado Musical Acessível">
+  <meta property="og:description" content="Músicas educativas acessíveis para pessoas com deficiência visual e baixa visão">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seusite.com">
+  <meta property="og:image" content="/images/social-share.jpg">
+</head>
+<body>
+  <!-- Skip link para acessibilidade -->
+  <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+  
+  <!-- Navegação -->
+  <nav class="navbar" aria-label="Navegação principal">
+    <div class="navbar-container container">
+      <a href="#" class="navbar-logo" aria-label="Matemágica - Voltar ao início">
+        <span role="img" aria-hidden="true">🎵</span> Matemágica
+      </a>
+      <button class="mobile-menu-button" aria-expanded="false" aria-controls="navbar-menu" aria-label="Menu">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+      <ul id="navbar-menu" class="navbar-menu">
+        <li><a href="#home" class="nav-link" onclick="navegarPara('home'); return false;">Início</a></li>
+        <li><a href="#matematica" class="nav-link" onclick="navegarPara('matematica'); return false;">Matemática</a></li>
+        <li><a href="#sobre" class="nav-link" onclick="navegarPara('sobre'); return false;">Sobre</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho -->
+  <header class="main-header" role="banner">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-text">
+          <h1>Aprender nunca foi tão musical!</h1>
+          <p class="subtitle">Músicas educativas com recursos de acessibilidade para todos</p>
+          <div class="header-buttons">
+            <button class="btn-primary" onclick="navegarPara('matematica')" aria-label="Começar com Matemática">
+              <span class="button-icon" aria-hidden="true">➗</span> Começar com Matemática
+            </button>
+            <button class="btn-secondary" onclick="iniciarNavegacaoPorVoz()" aria-label="Ativar Comandos de Voz">
+              <span class="button-icon" aria-hidden="true">🎤</span> Ativar Comandos de Voz
+            </button>
+          </div>
+        </div>
+        <div class="header-image">
+          <img src="/imagem/crianca.png" alt="Crianças aprendendo com música" loading="lazy" width="500" height="400">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content" role="main">
+    <section id="home" class="active-section" aria-labelledby="home-heading">
+      <div class="container welcome-container">
+        <h2 id="home-heading">Bem-vindo ao Matemágica Acessível!</h2>
+        <p>Nosso objetivo é tornar o aprendizado musical acessível para pessoas com deficiência visual e baixa visão.</p>
+        
+        <div class="subject-cards">
+          <article class="card" onclick="navegarPara('matematica')" role="button" tabindex="0" aria-label="Explorar músicas de Matemática">
+            <div class="card-icon" aria-hidden="true">➗</div>
+            <h3>Matemática</h3>
+            <p>Músicas sobre números, operações e muito mais!</p>
+          </article>
+        </div>
+
+        <section class="acessibilidade-container" aria-labelledby="acessibilidade-heading">
+          <h3 id="acessibilidade-heading">Ferramentas de Acessibilidade</h3>
+          <div class="acessibilidade-buttons">
+            <button onclick="toggleAltoContraste()" class="btn-small" aria-label="Alternar modo alto contraste">
+              <span aria-hidden="true">👓</span> Alto Contraste
+            </button>
+            <button onclick="toggleFonteGrande()" class="btn-small" aria-label="Alternar tamanho da fonte">
+              <span aria-hidden="true">🔍</span> Aumentar Fonte
+            </button>
+            <button onclick="iniciarNavegacaoPorVoz()" class="btn-small" aria-label="Ativar navegação por voz">
+              <span aria-hidden="true">🎤</span> Navegação por Voz
+            </button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="matematica" style="display:none;" aria-labelledby="matematica-heading">
+      <div class="container">
+        <div class="subject-header">
+          <h2 id="matematica-heading">Matemática Musical</h2>
+          <p>Aprenda conceitos matemáticos através de músicas acessíveis</p>
+        </div>
+        
+        <div class="action-panel">
+          <div class="action-buttons">
+            <button class="btn-primary" onclick="carregarMusicas('matematica')" aria-label="Mostrar músicas disponíveis">
+              <span class="button-icon" aria-hidden="true">🎶</span> Músicas Disponíveis
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('criar-musica').style.display='block'" aria-label="Criar nova música">
+              <span class="button-icon" aria-hidden="true">✨</span> Criar Nova Música
+            </button>
+          </div>
+          
+          <div id="lista-musicas-matematica" class="music-list" aria-live="polite"></div>
+          
+          <section id="criar-musica" style="display:none; margin-top:2rem;" aria-labelledby="criar-musica-heading">
+            <h3 id="criar-musica-heading">Criar Música Personalizada</h3>
+            <div class="ai-prompt">
+              <label for="tema-musica">Tema da música:</label>
+              <input 
+                type="text" 
+                id="tema-musica" 
+                placeholder="Ex: tabuada do 7" 
+                aria-label="Digite o tema para a música"
+                required
+              >
+              <label for="estilo-musica">Estilo musical:</label>
+              <input 
+                type="text" 
+                id="estilo-musica" 
+                placeholder="Ex: rap infantil" 
+                aria-label="Digite o estilo musical"
+              >
+              <button class="btn-primary" onclick="gerarLetraMusical()" aria-label="Gerar letra musical">
+                <span class="button-icon" aria-hidden="true">🎵</span> Criar Letra
+              </button>
+            </div>
+            <div id="letra-musica" class="lyrics-container" aria-live="polite"></div>
+          </section>
+          
+          <section class="descricao-container" aria-labelledby="descricao-heading">
+            <h3 id="descricao-heading">Descrição Acessível</h3>
+            <div id="descricao-musica" aria-live="polite"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" style="display:none;" aria-labelledby="sobre-heading">
+      <div class="container about-container">
+        <h2 id="sobre-heading">Sobre o Matemágica</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>O Matemágica é uma plataforma inovadora que combina educação musical e acessibilidade.</p>
+            <h3>Recursos para Deficiência Visual:</h3>
+            <ul>
+              <li>Descrições detalhadas de todas as músicas</li>
+              <li>Navegação por comando de voz</li>
+              <li>Contraste ajustável e fonte ampliada</li>
+              <li>Transcrição automática de conteúdos</li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <img src="/images/acessibilidade-educacao.png" alt="Símbolo de acessibilidade ao lado de instrumentos musicais" loading="lazy" width="400" height="300">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <section class="footer-section" aria-labelledby="footer-brand">
+          <h3 id="footer-brand">Matemágica</h3>
+          <p>&copy; <span id="current-year">2023</span> Todos os direitos reservados</p>
+        </section>
+        <section class="footer-section" aria-labelledby="footer-accessibility">
+          <h3 id="footer-accessibility">Acessibilidade</h3>
+          <button onclick="toggleAltoContraste()" class="btn-small" aria-label="Alternar modo alto contraste">
+            <span aria-hidden="true">👓</span> Alto Contraste
+          </button>
+          <button onclick="toggleFonteGrande()" class="btn-small" aria-label="Alternar tamanho da fonte">
+            <span aria-hidden="true">🔍</span> Aumentar Fonte
+          </button>
+        </section>
+        <section class="footer-section" aria-labelledby="footer-contact">
+          <h3 id="footer-contact">Contato</h3>
+          <p>contato@matemagica.com</p>
+        </section>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts.js"></script>
+  <script>
+    // Atualiza o ano no footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
